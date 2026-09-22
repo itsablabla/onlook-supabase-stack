@@ -523,6 +523,11 @@ services:
       - ./volumes/snippets:/app/snippets
       - ./volumes/functions:/app/edge-functions
   supabase-db:
+    networks:
+      default:
+      coolify:
+        aliases:
+          - onlook-supabase-db
     image: supabase/postgres:15.8.1.085
     healthcheck:
       test: pg_isready -U postgres -h 127.0.0.1
